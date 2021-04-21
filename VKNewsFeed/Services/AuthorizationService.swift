@@ -30,6 +30,10 @@ protocol AuthorizationServiceDelegate: class {
     }
     weak var delegate: AuthorizationServiceDelegate?
     
+    var token: String? {
+        return VKSdk.accessToken()?.accessToken
+    }
+    
     func wakeUpSesssion() {
         let scope = ["offline"]
         

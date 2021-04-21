@@ -18,6 +18,8 @@
 		C45E1496262E0F1A008F5968 /* VKNewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C45E1494262E0F1A008F5968 /* VKNewsFeed.xcdatamodeld */; };
 		C45E1498262E0F1C008F5968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45E1497262E0F1C008F5968 /* Assets.xcassets */; };
 		C45E149B262E0F1C008F5968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45E1499262E0F1C008F5968 /* LaunchScreen.storyboard */; };
+		C4C4329C263092FA001A9584 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4329B263092FA001A9584 /* NetworkService.swift */; };
+		C4C4329F26309409001A9584 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4329E26309409001A9584 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		C45E1497262E0F1C008F5968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C45E149A262E0F1C008F5968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C45E149C262E0F1C008F5968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4C4329B263092FA001A9584 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C4C4329E26309409001A9584 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EF881E95F7E40F584638F6E5 /* Pods-VKNewsFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKNewsFeed.release.xcconfig"; path = "Target Support Files/Pods-VKNewsFeed/Pods-VKNewsFeed.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				C400AE0A262F144E00094EAF /* AuthorizationService.swift */,
+				C4C4329B263092FA001A9584 /* NetworkService.swift */,
+				C4C4329E26309409001A9584 /* API.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +254,8 @@
 				C45E148C262E0F1A008F5968 /* AppDelegate.swift in Sources */,
 				C404D5FF262F372500543275 /* FeedViewController.swift in Sources */,
 				C45E148E262E0F1A008F5968 /* SceneDelegate.swift in Sources */,
+				C4C4329F26309409001A9584 /* API.swift in Sources */,
+				C4C4329C263092FA001A9584 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
