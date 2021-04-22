@@ -24,13 +24,12 @@ class NetworkService: Networking {
     func request(path: String, params: [String : String], completion: @escaping (Data?, Error?) -> Void) {
         guard let token = authorizationService.token else { return }
         let params = ["filters": "post, photo"]
-        var allparams = params
-        allparams["access_token"] = token
-        allparams["v"] = API.versiom
-        let url  = self.url(from: path, params: allparams)
-        let requst = URLRequest(url: url)
-        let task = createDataTask(from: requst, completion: completion)
-        
+        var allParams = params
+        allParams["access_token"] = token
+        allParams["v"] = API.version
+        let url = self.url(from: path, params: allParams)
+        let request = URLRequest(url: url)
+        let task = createDataTask(from: request, completion: completion)
         task.resume()
         print(url)
     }

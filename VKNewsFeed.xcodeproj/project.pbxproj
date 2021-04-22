@@ -18,6 +18,8 @@
 		C45E1496262E0F1A008F5968 /* VKNewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C45E1494262E0F1A008F5968 /* VKNewsFeed.xcdatamodeld */; };
 		C45E1498262E0F1C008F5968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45E1497262E0F1C008F5968 /* Assets.xcassets */; };
 		C45E149B262E0F1C008F5968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45E1499262E0F1C008F5968 /* LaunchScreen.storyboard */; };
+		C495E9A82631B2B80051B380 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495E9A72631B2B80051B380 /* FeedResponse.swift */; };
+		C495E9AD2631B6E30051B380 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495E9AC2631B6E30051B380 /* NetworkDataFetcher.swift */; };
 		C4C4329C263092FA001A9584 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4329B263092FA001A9584 /* NetworkService.swift */; };
 		C4C4329F26309409001A9584 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4329E26309409001A9584 /* API.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +39,8 @@
 		C45E1497262E0F1C008F5968 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C45E149A262E0F1C008F5968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C45E149C262E0F1C008F5968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C495E9A72631B2B80051B380 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		C495E9AC2631B6E30051B380 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		C4C4329B263092FA001A9584 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C4C4329E26309409001A9584 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EF881E95F7E40F584638F6E5 /* Pods-VKNewsFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKNewsFeed.release.xcconfig"; path = "Target Support Files/Pods-VKNewsFeed/Pods-VKNewsFeed.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,8 +78,10 @@
 		C400AE0D262F145700094EAF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C495E9AA2631B2BE0051B380 /* Models */,
 				C400AE0A262F144E00094EAF /* AuthorizationService.swift */,
 				C4C4329B263092FA001A9584 /* NetworkService.swift */,
+				C495E9AC2631B6E30051B380 /* NetworkDataFetcher.swift */,
 				C4C4329E26309409001A9584 /* API.swift */,
 			);
 			path = Services;
@@ -131,6 +137,14 @@
 				C45E1494262E0F1A008F5968 /* VKNewsFeed.xcdatamodeld */,
 			);
 			path = VKNewsFeed;
+			sourceTree = "<group>";
+		};
+		C495E9AA2631B2BE0051B380 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C495E9A72631B2B80051B380 /* FeedResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +266,11 @@
 				C400AE0B262F144E00094EAF /* AuthorizationService.swift in Sources */,
 				C45E1496262E0F1A008F5968 /* VKNewsFeed.xcdatamodeld in Sources */,
 				C45E148C262E0F1A008F5968 /* AppDelegate.swift in Sources */,
+				C495E9AD2631B6E30051B380 /* NetworkDataFetcher.swift in Sources */,
 				C404D5FF262F372500543275 /* FeedViewController.swift in Sources */,
 				C45E148E262E0F1A008F5968 /* SceneDelegate.swift in Sources */,
 				C4C4329F26309409001A9584 /* API.swift in Sources */,
+				C495E9A82631B2B80051B380 /* FeedResponse.swift in Sources */,
 				C4C4329C263092FA001A9584 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
