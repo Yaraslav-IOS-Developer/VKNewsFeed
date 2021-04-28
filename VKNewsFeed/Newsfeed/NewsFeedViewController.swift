@@ -13,22 +13,13 @@ protocol NewsFeedDisplayLogic: class {
 }
 
 class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
-
+    
   var interactor: NewsFeedBusinessLogic?
   var router: (NSObjectProtocol & NewsFeedRoutingLogic)?
 
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
+    @IBOutlet weak var tableViewController: UITableView!
+    
+    
   // MARK: Setup
   
   private func setup() {
@@ -51,10 +42,43 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
+    tableViewController.register(UINib(nibName: "NewsfeedCell", bundle: nil), forCellReuseIdentifier: NewsfeedCell.reusedId)
   }
   
   func displayData(viewModel: NewsFeed.Model.ViewModel.ViewModelData) {
+    
+    switch viewModel {
+    case .some:
+        print(".some ViewController")
+    case .displayNewsfeed:
+        print(".displayNewsfeed ViewController")
+    }
 
   }
   
+}
+
+extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsfeedCell.reusedId, for: indexPath) as! NewsfeedCell
+
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("select row")
+        interactor?.makeRequest(request: .getFeed)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 212
+    }
+    
 }
