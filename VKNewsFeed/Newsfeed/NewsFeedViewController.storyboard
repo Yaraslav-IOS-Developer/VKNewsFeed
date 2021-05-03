@@ -26,7 +26,6 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tjd-jM-iYs"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstItem="TKH-s9-W8v" firstAttribute="trailing" secondItem="Tjd-jM-iYs" secondAttribute="trailing" id="9BW-Om-KUx"/>
                             <constraint firstItem="TKH-s9-W8v" firstAttribute="top" secondItem="BzG-WS-xzC" secondAttribute="top" id="Dtd-CF-4dD"/>
@@ -46,9 +45,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
