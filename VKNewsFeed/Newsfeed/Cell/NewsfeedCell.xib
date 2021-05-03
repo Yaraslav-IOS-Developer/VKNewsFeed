@@ -59,7 +59,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYn-aQ-e8d">
-                        <rect key="frame" x="10" y="55" width="457" height="129"/>
+                        <rect key="frame" x="10" y="55" width="457" height="17.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -190,16 +190,22 @@
                             <constraint firstItem="ygv-GB-XM4" firstAttribute="leading" secondItem="caN-T0-MNU" secondAttribute="leading" id="uNI-H7-0FG"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmh-Sg-Al1" customClass="WebImageView" customModule="VKNewsFeed" customModuleProvider="target">
+                        <rect key="frame" x="10" y="80.5" width="457" height="105.5"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="caN-T0-MNU" firstAttribute="leading" secondItem="o8f-P0-drj" secondAttribute="leading" id="63Z-7M-e14"/>
+                    <constraint firstItem="caN-T0-MNU" firstAttribute="top" secondItem="cmh-Sg-Al1" secondAttribute="bottom" constant="8" symbolic="YES" id="AIv-Wb-0tZ"/>
                     <constraint firstAttribute="trailing" secondItem="1zD-C9-pAI" secondAttribute="trailing" constant="10" id="Leh-an-1NZ"/>
+                    <constraint firstItem="cmh-Sg-Al1" firstAttribute="top" secondItem="dYn-aQ-e8d" secondAttribute="bottom" constant="8" id="Pho-iy-HbX"/>
                     <constraint firstAttribute="bottom" secondItem="caN-T0-MNU" secondAttribute="bottom" id="R9Q-Aw-DYQ"/>
                     <constraint firstItem="1zD-C9-pAI" firstAttribute="leading" secondItem="o8f-P0-drj" secondAttribute="leading" constant="10" id="Ris-Uh-dyC"/>
                     <constraint firstItem="dYn-aQ-e8d" firstAttribute="leading" secondItem="o8f-P0-drj" secondAttribute="leading" constant="10" id="TaY-dT-Z13"/>
                     <constraint firstAttribute="trailing" secondItem="caN-T0-MNU" secondAttribute="trailing" id="eVr-Vv-s5d"/>
                     <constraint firstItem="1zD-C9-pAI" firstAttribute="top" secondItem="o8f-P0-drj" secondAttribute="top" constant="15" id="hC5-yk-kPd"/>
-                    <constraint firstItem="caN-T0-MNU" firstAttribute="top" secondItem="dYn-aQ-e8d" secondAttribute="bottom" constant="10" id="r3d-Ne-Nd1"/>
+                    <constraint firstAttribute="trailing" secondItem="cmh-Sg-Al1" secondAttribute="trailing" constant="10" id="iMC-0x-1me"/>
+                    <constraint firstItem="cmh-Sg-Al1" firstAttribute="leading" secondItem="o8f-P0-drj" secondAttribute="leading" constant="10" id="m9N-YC-L6z"/>
                     <constraint firstItem="dYn-aQ-e8d" firstAttribute="top" secondItem="1zD-C9-pAI" secondAttribute="bottom" constant="10" id="t0E-FS-gBx"/>
                     <constraint firstAttribute="trailing" secondItem="dYn-aQ-e8d" secondAttribute="trailing" constant="10" id="zSJ-Rs-Qjt"/>
                 </constraints>
@@ -210,6 +216,7 @@
                 <outlet property="iconImageView" destination="CWo-lO-ybe" id="P0i-ec-Gak"/>
                 <outlet property="likeLabel" destination="NvF-wE-SSF" id="WAd-BF-baX"/>
                 <outlet property="nameLabel" destination="rsG-WM-gTp" id="IOm-uG-EPb"/>
+                <outlet property="postImageView" destination="cmh-Sg-Al1" id="iky-37-zZP"/>
                 <outlet property="postLabel" destination="dYn-aQ-e8d" id="OO4-JW-ewm"/>
                 <outlet property="sharesLabel" destination="e4c-fc-fmY" id="EMs-9U-j7U"/>
                 <outlet property="viewsLabel" destination="VCU-A4-f8P" id="QcD-Mz-KsW"/>
