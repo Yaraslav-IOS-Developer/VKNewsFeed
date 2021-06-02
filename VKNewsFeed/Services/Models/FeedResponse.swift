@@ -46,7 +46,7 @@ struct Photo: Decodable {
         return getPropperSize().url
     }
     private func getPropperSize() -> PhotoSize {
-        if let sizeX = sizes.first(where: { $0.type == "x" }) {
+        if let sizeX = sizes.first(where: { $0.type == "y" }) {
             return sizeX
         } else if let fallBackSize =  sizes.last {
             return fallBackSize

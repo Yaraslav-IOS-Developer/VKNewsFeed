@@ -32,6 +32,8 @@ enum NewsFeed {
 
 struct FeedViewModel {
     struct Cell: FeedCelllViewModel {
+        
+        
         var iconUrlString: String
         var name: String
         var date: String
@@ -40,7 +42,7 @@ struct FeedViewModel {
         var comments: String?
         var shares: String?
         var view: String?
-        var photoAttachemet: FeedCellPhotoAttachementViewModel?
+        var photoAttachemets: [FeedCellPhotoAttachementViewModel]
     }
     
     struct FeedCellPhotoAttachment: FeedCellPhotoAttachementViewModel {

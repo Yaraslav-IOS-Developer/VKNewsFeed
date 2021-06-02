@@ -16,7 +16,7 @@ protocol FeedCelllViewModel {
     var comments: String? { get }
     var shares: String? { get }
     var view: String? { get }
-    var photoAttachemet: FeedCellPhotoAttachementViewModel? { get }
+    var photoAttachemets: [FeedCellPhotoAttachementViewModel] { get }
     
     
 }
@@ -45,6 +45,8 @@ class NewsfeedCell: UITableViewCell {
     
     
     
+    
+    
     override func awakeFromNib() {
         superview?.awakeFromNib()
         
@@ -54,8 +56,8 @@ class NewsfeedCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         
-//        backgroundColor = .clear
-//        selectionStyle = .none
+        
+ 
     }
     
     
@@ -69,14 +71,22 @@ class NewsfeedCell: UITableViewCell {
         sharesLabel.text = viewModel.shares
         viewsLabel.text = viewModel.view
         
-        if let photoAttachment = viewModel.photoAttachemet {
+        
+        if let photoAttachment  = viewModel.photoAttachemets.first, viewModel.photoAttachemets.count == 1 {
             postImageView.set(imageUrl: photoAttachment.photoUrlString)
             postImageView.isHidden = false
         } else {
             postImageView.isHidden = true
         }
         
-        
+//        if let photoAttachment = viewModel.photoAttachemets {
+//            postImageView.set(imageUrl: photoAttachment.photoUrlString)
+//            postImageView.isHidden = false
+//        } else {
+//            postImageView.isHidden = true
+//        }
+//
+//
     }
     
 }
