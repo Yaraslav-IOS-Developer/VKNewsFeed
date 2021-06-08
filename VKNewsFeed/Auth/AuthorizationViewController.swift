@@ -17,10 +17,7 @@ class AuthorizationViewController: UIViewController {
         authorizationService = SceneDelegate.shared().authorizationService
     }
     
-
     @IBAction func signInTouch() {
         authorizationService.wakeUpSesssion()
     }
-    
-
 }

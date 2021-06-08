@@ -18,7 +18,6 @@ protocol FeedCelllViewModel {
     var view: String? { get }
     var photoAttachemets: [FeedCellPhotoAttachementViewModel] { get }
     
-    
 }
 
 protocol FeedCellPhotoAttachementViewModel {
@@ -43,10 +42,6 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var sharesLabel: UILabel!
     @IBOutlet weak var viewsLabel: UILabel!
     
-    
-    
-    
-    
     override func awakeFromNib() {
         superview?.awakeFromNib()
         
@@ -56,10 +51,7 @@ class NewsfeedCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
         cardView.clipsToBounds = true
         
-        
- 
     }
-    
     
     func configCell(viewModel: FeedCelllViewModel) {
         iconImageView.set(imageUrl: viewModel.iconUrlString)
@@ -70,7 +62,6 @@ class NewsfeedCell: UITableViewCell {
         commentsLabel.text = viewModel.comments
         sharesLabel.text = viewModel.shares
         viewsLabel.text = viewModel.view
-        
         
         if let photoAttachment  = viewModel.photoAttachemets.first, viewModel.photoAttachemets.count == 1 {
             postImageView.set(imageUrl: photoAttachment.photoUrlString)
@@ -85,8 +76,7 @@ class NewsfeedCell: UITableViewCell {
 //        } else {
 //            postImageView.isHidden = true
 //        }
-//
-//
     }
     
 }
+

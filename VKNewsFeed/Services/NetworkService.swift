@@ -11,9 +11,8 @@ import Foundation
 protocol Networking {
     func request(path: String, params: [String: String], completion: @escaping (Data?, Error?) -> Void)
 }
+
 class NetworkService: Networking {
-    
-    
     
     private let authorizationService: AuthorizationService
     
@@ -33,9 +32,8 @@ class NetworkService: Networking {
         task.resume()
         print(url)
     }
-   
+    
     private func createDataTask(from requst: URLRequest, completion: @escaping (Data?, Error?) -> Void) -> URLSessionDataTask {
-        
         return URLSession.shared.dataTask(with: requst) { (data, response, error) in
             DispatchQueue.main.async {
                 completion(data, error)
@@ -49,7 +47,6 @@ class NetworkService: Networking {
         components.host = API.host
         components.path = API.newsFeed
         components.queryItems = params.map{ URLQueryItem(name: $0, value: $1) }
-        
         return components.url!
     }
 }
