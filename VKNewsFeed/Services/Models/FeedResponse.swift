@@ -71,6 +71,7 @@ protocol ProfileRepresenatable {
     var name: String { get }
     var photo: String { get }
 }
+
 struct Profile: Decodable, ProfileRepresenatable {
     
     
@@ -82,10 +83,9 @@ struct Profile: Decodable, ProfileRepresenatable {
     var name: String { return  firstName + " " + lastName }
     var photo: String { return photo100 }
 }
+
 struct Group: Decodable ,ProfileRepresenatable {
-    
-    
-    
+
     let id: Int
     let name: String
     let photo100: String

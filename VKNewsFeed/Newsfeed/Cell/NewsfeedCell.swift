@@ -16,7 +16,8 @@ protocol FeedCelllViewModel {
     var comments: String? { get }
     var shares: String? { get }
     var view: String? { get }
-    var photoAttachemets: [FeedCellPhotoAttachementViewModel] { get }
+    var photoAttachemets: FeedCellPhotoAttachementViewModel? { get }
+    var sizes: FeedCellSizes { get }
     
 }
 
@@ -26,21 +27,29 @@ protocol FeedCellPhotoAttachementViewModel {
     var height: Int { get }
 }
 
+protocol FeedCellSizes {
+    var postLabelFrame: CGRect { get }
+    var attachmentFrame: CGRect { get }
+    var bottonView: CGRect { get }
+    var totalHeight: CGFloat { get }
+}
+
 
 class NewsfeedCell: UITableViewCell {
     
     static let reusedId = "NewsfeedCell"
     
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var iconImageView: WebImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var postLabel: UILabel!
-    @IBOutlet weak var postImageView: WebImageView!
-    @IBOutlet weak var likeLabel: UILabel!
-    @IBOutlet weak var commentsLabel: UILabel!
-    @IBOutlet weak var sharesLabel: UILabel!
-    @IBOutlet weak var viewsLabel: UILabel!
+    @IBOutlet private weak var cardView: UIView!
+    @IBOutlet private weak var iconImageView: WebImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var postLabel: UILabel!
+    @IBOutlet private weak var postImageView: WebImageView!
+    @IBOutlet private weak var likeLabel: UILabel!
+    @IBOutlet private weak var commentsLabel: UILabel!
+    @IBOutlet private weak var sharesLabel: UILabel!
+    @IBOutlet private weak var viewsLabel: UILabel!
+    @IBOutlet private weak var bottomView: UIView!
     
     override func awakeFromNib() {
         superview?.awakeFromNib()
@@ -63,20 +72,19 @@ class NewsfeedCell: UITableViewCell {
         sharesLabel.text = viewModel.shares
         viewsLabel.text = viewModel.view
         
-        if let photoAttachment  = viewModel.photoAttachemets.first, viewModel.photoAttachemets.count == 1 {
-            postImageView.set(imageUrl: photoAttachment.photoUrlString)
+        postLabel.frame = viewModel.sizes.postLabelFrame
+        postImageView.frame = viewModel.sizes.attachmentFrame
+        bottomView.frame = viewModel.sizes.bottonView
+        
+        
+        if let photoAttachment = viewModel.photoAttachemets {
+            postImageView.set(imageUrl: photoAttachment.photoUrlString )
             postImageView.isHidden = false
         } else {
             postImageView.isHidden = true
         }
-        
-//        if let photoAttachment = viewModel.photoAttachemets {
-//            postImageView.set(imageUrl: photoAttachment.photoUrlString)
-//            postImageView.isHidden = false
-//        } else {
-//            postImageView.isHidden = true
-//        }
     }
     
 }
+
 

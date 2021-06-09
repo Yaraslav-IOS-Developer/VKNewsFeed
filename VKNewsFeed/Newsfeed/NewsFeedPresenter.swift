@@ -13,7 +13,12 @@ protocol NewsFeedPresentationLogic {
 }
 
 class NewsFeedPresenter: NewsFeedPresentationLogic {
-  weak var viewController: NewsFeedDisplayLogic?
+    
+    weak var viewController: NewsFeedDisplayLogic?
+    
+    var cellLayoutCalculator: FeedCellLayoutCalculatorProtocol = FeedCellLayoutCalculator()
+    
+    
     let dateFormatter: DateFormatter = {
         let date = DateFormatter()
         date.locale = Locale(identifier: "ru_RU")
@@ -38,9 +43,11 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
     private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups: [Group]) -> FeedViewModel.Cell {
         let profile = self.profile(for: feedItem.sourceId, profiles: profiles, groups: groups)
         
-        let photoAttachments = self.photoAttachments(feedItem: feedItem)
+        let photoAttachment = self.photoAttachment(feedItem: feedItem)
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitle = dateFormatter.string(from: date)
+        
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment)
         
         return FeedViewModel.Cell.init(iconUrlString: profile.photo,
                                        name: profile.name,
@@ -48,9 +55,10 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
                                        text: feedItem.text,
                                        likes: String(feedItem.likes?.count ?? 0),
                                        comments: String(feedItem.comments?.count ?? 0),
-                                       shares: String(feedItem.reposts?.count ?? 0 ),
+                                       shares: String(feedItem.reposts?.count ?? 0),
                                        view: String(feedItem.views?.count ?? 0),
-                                       photoAttachemets: photoAttachments)
+                                       photoAttachemets: photoAttachment,
+                                       sizes: sizes)
     }
   
     private func profile(for sourseId: Int, profiles: [Profile], groups: [Group]) -> ProfileRepresenatable {
