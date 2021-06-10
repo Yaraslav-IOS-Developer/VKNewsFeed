@@ -21,13 +21,7 @@ struct Sizes: FeedCellSizes {
     
 }
 
-struct Constants {
-    static let cardInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    static let topViewHeight: CGFloat = 41
-    static let postLabelInsert = UIEdgeInsets(top: 8 + Constants.topViewHeight + 8 , left: 8, bottom: 8, right: 8)
-    static let postLabelFont = UIFont.systemFont(ofSize: 15)
-    static let bottonViewHeight: CGFloat = 44
-}
+
 
 final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
 
