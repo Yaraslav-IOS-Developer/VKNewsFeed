@@ -60,7 +60,7 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         
         //MARK: - Работа с bottomViewFrame
         let bootomViewTop = max(postLabelFrame.maxY, attachmentFrame.maxY)
-        let bottomViewFrame = CGRect(origin: CGPoint(x: 0, y: bootomViewTop), size: CGSize(width: cardViewWidth, height: Constants.bottonViewHeight))
+        let bottomViewFrame = CGRect(origin: CGPoint(x: 0, y: bootomViewTop), size: CGSize(width: cardViewWidth, height: Constants.bottomViewHeight))
         
         
         //MARK: - Работа с totalHeight
