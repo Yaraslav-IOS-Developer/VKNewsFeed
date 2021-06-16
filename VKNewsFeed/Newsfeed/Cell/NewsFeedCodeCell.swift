@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 final class NewsFeedCodeCell: UITableViewCell {
     
     static let reusedId = "NewsFeedCodeCell"
@@ -71,18 +70,21 @@ final class NewsFeedCodeCell: UITableViewCell {
     let likesView: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = true
+        view.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         return view
     }()
     
     let commentsView: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = true
+        view.backgroundColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
         return view
     }()
     
     let sharesView: UIView = {
        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = true
+        view.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         return view
     }()
     
@@ -255,32 +257,32 @@ final class NewsFeedCodeCell: UITableViewCell {
         bottomView.addSubview(sharesView)
         bottomView.addSubview(viewsView)
         
-        likesView.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
-        
-        commentsView.anchor(top: bottomView.topAnchor, leading: likesView.trailingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
-        
-        sharesView.anchor(top: bottomView.topAnchor, leading: commentsView.trailingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
-        
-        viewsView.anchor(top: bottomView.topAnchor, leading: nil, bottom: nil, trailing: bottomView.trailingAnchor, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
+//        likesView.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
+//
+//        commentsView.anchor(top: bottomView.topAnchor, leading: likesView.trailingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
+//
+//        sharesView.anchor(top: bottomView.topAnchor, leading: commentsView.trailingAnchor, bottom: nil, trailing: nil, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
+//
+//        viewsView.anchor(top: bottomView.topAnchor, leading: nil, bottom: nil, trailing: bottomView.trailingAnchor, size: CGSize(width: Constants.bottomViewViewWidth , height: Constants.bottomViewViewHeight))
 
         
-//        // likesView constraints
-//        likesView.topAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
-//        likesView.leadingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: 8).isActive = true
-//        likesView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewWidth).isActive = true
-//        likesView.heightAnchor.constraint(equalToConstant: Constants.bottomViewHeight).isActive = true
-//
-//        // commentsView constraints
-//        commentsView.topAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
-//        commentsView.leadingAnchor.constraint(equalTo: likesView.trailingAnchor).isActive = true
-//        commentsView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewWidth).isActive = true
-//        commentsView.heightAnchor.constraint(equalToConstant: Constants.bottomViewHeight).isActive = true
-//
-//        // sharesView constraints
-//        sharesView.topAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
-//        sharesView.leadingAnchor.constraint(equalTo: commentsView.trailingAnchor).isActive = true
-//        sharesView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewWidth).isActive = true
- //       sharesView.heightAnchor.constraint(equalToConstant: Constants.bottomViewHeight).isActive = true
+        // likesView constraints
+        likesView.topAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
+        likesView.leadingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: 8).isActive = true
+        likesView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewWidth).isActive = true
+        likesView.heightAnchor.constraint(equalToConstant: Constants.bottomViewHeight).isActive = true
+
+        // commentsView constraints
+        commentsView.topAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
+        commentsView.leadingAnchor.constraint(equalTo: likesView.trailingAnchor).isActive = true
+        commentsView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewWidth).isActive = true
+        commentsView.heightAnchor.constraint(equalToConstant: Constants.bottomViewHeight).isActive = true
+
+        // sharesView constraints
+        sharesView.topAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
+        sharesView.leadingAnchor.constraint(equalTo: commentsView.trailingAnchor).isActive = true
+        sharesView.widthAnchor.constraint(equalToConstant: Constants.bottomViewViewWidth).isActive = true
+        sharesView.heightAnchor.constraint(equalToConstant: Constants.bottomViewHeight).isActive = true
     }
     
     private func overlayFourthLayerOnBottomViewViews() {
@@ -301,13 +303,10 @@ final class NewsFeedCodeCell: UITableViewCell {
         helpInFourtLayer(view: commentsView, imageView: commentsImage, label: commentsLabel)
         helpInFourtLayer(view: sharesView, imageView: sharesImage, label: sharesLabel)
         helpInFourtLayer(view: viewsView, imageView: viewsImage, label: viewsLabel)
-        
-        
-        
+
     }
     
     private func helpInFourtLayer(view: UIView, imageView: UIImageView, label: UILabel) {
-        
         // imageView constraints
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true

@@ -36,10 +36,10 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         let cardViewWidth = screenWidth - Constants.cardInsets.left - Constants.cardInsets.right
         
         //MARK: - Работа с postLabelFrame
-        var postLabelFrame = CGRect(origin: CGPoint(x: Constants.postLabelInsert.left, y: Constants.postLabelInsert.top), size: CGSize.zero)
+        var postLabelFrame = CGRect(origin: CGPoint(x:Constants.postLabelInsets.left, y: Constants.postLabelInsets.top),size: CGSize.zero)
         
         if let text = postText, !text.isEmpty {
-            let width = cardViewWidth - Constants.postLabelInsert.left - Constants.postLabelInsert.right
+            let width = cardViewWidth - Constants.postLabelInsets.left - Constants.postLabelInsets.right
             let height = text.height(width: width, font: Constants.postLabelFont)
             
             postLabelFrame.size = CGSize(width: width, height: height)
@@ -47,7 +47,7 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         
         //MARK: - Работа с attachmentFrame
         
-        let attachmentTop = postLabelFrame.size == CGSize.zero ? Constants.postLabelInsert.top : postLabelFrame.maxY + Constants.postLabelInsert.bottom
+        let attachmentTop = postLabelFrame.size == CGSize.zero ? Constants.postLabelInsets.top : postLabelFrame.maxY + Constants.postLabelInsets.bottom
         
         var attachmentFrame = CGRect(origin: CGPoint(x: 0, y: attachmentTop), size: CGSize.zero)
         
