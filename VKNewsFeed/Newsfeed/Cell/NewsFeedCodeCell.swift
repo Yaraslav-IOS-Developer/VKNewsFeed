@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol NewsfeedCodeCellDelegate: class {
+    func revealPost(for cell: NewsFeedCodeCell)
+}
 
 final class NewsFeedCodeCell: UITableViewCell {
     
     static let reusedId = "NewsFeedCodeCell"
+    weak var delegate: NewsfeedCodeCellDelegate?
     
     let cardView: UIView = {
         let view = UIView()
@@ -31,6 +35,16 @@ final class NewsFeedCodeCell: UITableViewCell {
         label.font = Constants.postLabelFont
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return label
+    }()
+    
+    let moreTextButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.setTitleColor(#colorLiteral(red: 0.4, green: 0.6235294118, blue: 0.831372549, alpha: 1), for: .normal)
+        button.contentHorizontalAlignment = .left
+        button.contentVerticalAlignment = .center
+        button.setTitle("Показать полностью...", for: .normal)
+        return button
     }()
     
     let postImageView: WebImageView = {
@@ -159,9 +173,24 @@ final class NewsFeedCodeCell: UITableViewCell {
         return label
     }()
     
+    override func prepareForReuse() {
+        iconImageView.set(imageUrl: nil)
+        postImageView.set(imageUrl: nil)
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        iconImageView.layer.cornerRadius = Constants.topViewHeight / 2
+        iconImageView.clipsToBounds = true
+        
+        backgroundColor = .clear
+        selectionStyle = .none
+        
+        cardView.layer.cornerRadius = 10
+        cardView.clipsToBounds = true
+        
+        moreTextButton.addTarget(self, action: #selector(moreTextButtonTouch), for: .touchUpInside)
         
         overlayFirstLayer() // Первый слой
         overlaySecondLayer() // Второй слой
@@ -172,6 +201,11 @@ final class NewsFeedCodeCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func moreTextButtonTouch() {
+        print("555")
+        delegate?.revealPost(for: self)
     }
     
      func configCell(viewModel: FeedCelllViewModel) {
@@ -189,6 +223,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         postLabel.frame = viewModel.sizes.postLabelFrame
         postImageView.frame = viewModel.sizes.attachmentFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
+        moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
         if let photoAttachment = viewModel.photoAttachemets {
             postImageView.set(imageUrl: photoAttachment.photoUrlString )
@@ -208,6 +243,7 @@ final class NewsFeedCodeCell: UITableViewCell {
     private func overlaySecondLayer() {
         cardView.addSubview(topView)
         cardView.addSubview(postLabel)
+        cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
         
@@ -221,7 +257,8 @@ final class NewsFeedCodeCell: UITableViewCell {
         
         // postLabel constraints
         
-        // postImageView constraints
+        // moreTextButton constraints
+        
         
         // bottomView constraints
         
