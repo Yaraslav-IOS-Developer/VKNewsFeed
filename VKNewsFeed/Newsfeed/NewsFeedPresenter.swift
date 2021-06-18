@@ -29,9 +29,9 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
   func presentData(response: NewsFeed.Model.Response.ResponseType) {
     
     switch response {
-    case .presentNewsfeed(feed: let feed):
+    case .presentNewsfeed(feed: let feed, let revealPostIds):
         let cells = feed.items.map { (feedItem) in
-            cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups)
+            cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups, revealPostIds: revealPostIds)
         }
         
         let feedViewModel = FeedViewModel.init(cells: cells)
@@ -40,7 +40,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
   
   }
     
-    private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups: [Group]) -> FeedViewModel.Cell {
+    private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups: [Group], revealPostIds: [Int]) -> FeedViewModel.Cell {
         let profile = self.profile(for: feedItem.sourceId, profiles: profiles, groups: groups)
         
         let photoAttachment = self.photoAttachment(feedItem: feedItem)
@@ -49,7 +49,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         
         let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment)
         
-        return FeedViewModel.Cell.init(iconUrlString: profile.photo,
+        return FeedViewModel.Cell.init(postId: feedItem.postId, iconUrlString: profile.photo,
                                        name: profile.name,
                                        date: dateTitle,
                                        text: feedItem.text,
