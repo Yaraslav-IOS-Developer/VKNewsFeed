@@ -33,7 +33,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = Constants.postLabelFont
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.textColor = #colorLiteral(red: 0.227329582, green: 0.2323184013, blue: 0.2370472848, alpha: 1)
         return label
     }()
     
@@ -69,7 +69,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 0
-        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.textColor = #colorLiteral(red: 0.227329582, green: 0.2323184013, blue: 0.2370472848, alpha: 1)
         return label
     }()
     

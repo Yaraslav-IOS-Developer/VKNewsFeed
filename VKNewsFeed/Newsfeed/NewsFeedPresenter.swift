@@ -30,6 +30,8 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
     
     switch response {
     case .presentNewsfeed(feed: let feed, let revealPostIds):
+        
+        print(revealPostIds)
         let cells = feed.items.map { (feedItem) in
             cellViewModel(from: feedItem, profiles: feed.profiles, groups: feed.groups, revealPostIds: revealPostIds)
         }
@@ -46,8 +48,11 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         let photoAttachment = self.photoAttachment(feedItem: feedItem)
         let date = Date(timeIntervalSince1970: feedItem.date)
         let dateTitle = dateFormatter.string(from: date)
+        let isFullSized = revealPostIds.contains { (postId) -> Bool in
+            return postId == feedItem.postId
+        }
         
-        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment)
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment, isFullSizedPost: isFullSized)
         
         return FeedViewModel.Cell.init(postId: feedItem.postId, iconUrlString: profile.photo,
                                        name: profile.name,
