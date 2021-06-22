@@ -247,8 +247,6 @@ final class NewsFeedCodeCell: UITableViewCell {
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
         
-    
-        
         // topView constraints
         topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
         topView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -8).isActive = true

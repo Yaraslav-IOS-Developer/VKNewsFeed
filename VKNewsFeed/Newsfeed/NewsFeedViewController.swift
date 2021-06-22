@@ -13,17 +13,16 @@ protocol NewsFeedDisplayLogic: class {
 }
 
 class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsfeedCodeCellDelegate {
-    
 
   var interactor: NewsFeedBusinessLogic?
   var router: (NSObjectProtocol & NewsFeedRoutingLogic)?
     
     private var feedViewModel = FeedViewModel.init(cells: [])
 
-    @IBOutlet weak var tableViewController: UITableView!
+    @IBOutlet private weak var tableViewController: UITableView!
     
     
-  // MARK: Setup
+  // MARK: - Setup
   
   private func setup() {
     let viewController        = self
@@ -38,8 +37,6 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsfeedCo
   }
   
   // MARK: Routing
-  
-
   
   // MARK: View lifecycle
   
@@ -71,7 +68,7 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsfeedCo
         interactor?.makeRequest(request: NewsFeed.Model.Request.RequestType.revealPostIds(postId: cellViewModel.postId))
     }
 }
-
+    //MARK: - UITableViewDelegate, UITableViewDataSource
 extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

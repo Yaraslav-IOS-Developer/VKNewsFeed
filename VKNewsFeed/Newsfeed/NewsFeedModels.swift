@@ -51,8 +51,7 @@ struct FeedViewModel {
         var photoUrlString: String?
         var width: Int
         var height: Int
-        
-        
     }
+    
     let cells: [Cell]
 }

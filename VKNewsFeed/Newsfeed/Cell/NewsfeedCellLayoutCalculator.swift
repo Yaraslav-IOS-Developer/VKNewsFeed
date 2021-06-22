@@ -10,6 +10,7 @@ import UIKit
 protocol FeedCellLayoutCalculatorProtocol {
     func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachementViewModel?, isFullSizedPost: Bool) -> FeedCellSizes
 }
+
 struct Sizes: FeedCellSizes {
     var postLabelFrame: CGRect
     var moreTextButtonFrame: CGRect
@@ -27,9 +28,7 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
     }
     
     func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachementViewModel?, isFullSizedPost: Bool) -> FeedCellSizes {
-        
         var showMoreTextButton = false
-        
         let cardViewWidth = screenWidth - Constants.cardInsets.left - Constants.cardInsets.right
         
         //MARK: - Работа с postLabelFrame
@@ -55,7 +54,6 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         }
         let moreTextButtonOrigin = CGPoint(x: Constants.moreTextButtonInsets.left, y: postLabelFrame.maxY)
         let moreTextButtonFrame = CGRect(origin: moreTextButtonOrigin, size: moreTextButtonSize)
-        
         
         //MARK: - Работа с attachmentFrame
         

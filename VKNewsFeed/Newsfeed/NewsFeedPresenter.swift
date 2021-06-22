@@ -18,7 +18,6 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
     
     var cellLayoutCalculator: FeedCellLayoutCalculatorProtocol = FeedCellLayoutCalculator()
     
-    
     let dateFormatter: DateFormatter = {
         let date = DateFormatter()
         date.locale = Locale(identifier: "ru_RU")

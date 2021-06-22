@@ -32,17 +32,12 @@ class NewsFeedInteractor: NewsFeedBusinessLogic {
                
                 self?.feedResponse = feedResponse
                 self?.presentFeed()
-                
-                
             }
             
         case .revealPostIds(postId: let postId):
             revealedPostIds.append(postId)
             presentFeed()
-            
         }
-        
-        
     }
     
     private func presentFeed() {
