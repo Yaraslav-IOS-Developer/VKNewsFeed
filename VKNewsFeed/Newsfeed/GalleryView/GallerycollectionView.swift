@@ -44,6 +44,7 @@ extension GalleryCollectionView: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId , for: indexPath) as! GalleryCollectionViewCell
+        cell.set(imageUrl: photos[indexPath.row].photoUrlString)
         
         return cell
     }

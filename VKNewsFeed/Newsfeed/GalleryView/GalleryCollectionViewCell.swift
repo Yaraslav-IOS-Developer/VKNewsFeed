@@ -30,6 +30,14 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         myImageView.fillSuperview()
     }
     
+    override func prepareForReuse() {
+        myImageView.image = nil
+    }
+    
+    func set(imageUrl: String?) {
+        myImageView.set(imageUrl: imageUrl)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

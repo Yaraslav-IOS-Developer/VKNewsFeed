@@ -47,7 +47,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         return button
     }()
     
-    //private galleryCollectionView = GalleryCollectionViewCell()
+    private var  galleryCollectionView = GalleryCollectionViewCell()
     
     private let postImageView: WebImageView = {
         let imageView = WebImageView()
@@ -250,6 +250,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         cardView.addSubview(moreTextButton)
         cardView.addSubview(postImageView)
         cardView.addSubview(bottomView)
+        cardView.addSubview(galleryCollectionView)
         
         // topView constraints
         topView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 8).isActive = true
