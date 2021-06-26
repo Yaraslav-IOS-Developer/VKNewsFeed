@@ -15,7 +15,8 @@ class GalleryCollectionView: UICollectionView {
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        super.init(frame: .zero, collectionViewLayout: layout)
+        let rowLayout = RowLayout()
+        super.init(frame: .zero, collectionViewLayout: rowLayout)
         
         delegate = self
         dataSource = self
@@ -28,15 +29,16 @@ class GalleryCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func set(photos: [FeedCellPhotoAttachementViewModel]) {
-        //self.photos = photos
+    func set(photos: [FeedCellPhotoAttachementViewModel]) {
+        self.photos = photos
+        reloadData()
     }
 }
 
 
 
-    //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension GalleryCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
+    //MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension GalleryCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -49,5 +51,8 @@ extension GalleryCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: frame.width, height: frame.height)
+    }
     
 }

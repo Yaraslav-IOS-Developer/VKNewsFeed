@@ -47,7 +47,7 @@ final class NewsFeedCodeCell: UITableViewCell {
         return button
     }()
     
-    private var  galleryCollectionView = GalleryCollectionViewCell()
+    private var  galleryCollectionView = GalleryCollectionView()
     
     private let postImageView: WebImageView = {
         let imageView = WebImageView()
@@ -223,16 +223,22 @@ final class NewsFeedCodeCell: UITableViewCell {
         bottomView.frame = viewModel.sizes.bottomViewFrame
         
         postLabel.frame = viewModel.sizes.postLabelFrame
-        postImageView.frame = viewModel.sizes.attachmentFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
         moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
-        
         
         if  let photoAttachment = viewModel.photoAttachemets.first, viewModel.photoAttachemets.count == 1 {
             postImageView.set(imageUrl: photoAttachment.photoUrlString )
             postImageView.isHidden = false
+            galleryCollectionView.isHidden = true
+            postImageView.frame = viewModel.sizes.attachmentFrame
+        } else if viewModel.photoAttachemets.count > 1 {
+            galleryCollectionView.frame = viewModel.sizes.attachmentFrame
+            postImageView.isHidden = true
+            galleryCollectionView.isHidden = false
+            galleryCollectionView.set(photos: viewModel.photoAttachemets)
         } else {
             postImageView.isHidden = true
+            galleryCollectionView.isHidden = true
         }
         
     }
