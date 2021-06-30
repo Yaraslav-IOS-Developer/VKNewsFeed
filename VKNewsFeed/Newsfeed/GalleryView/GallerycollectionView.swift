@@ -34,9 +34,6 @@ class GalleryCollectionView: UICollectionView {
         reloadData()
     }
 }
-
-
-
     //MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension GalleryCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
